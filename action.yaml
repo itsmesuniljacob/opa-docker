@@ -1,0 +1,24 @@
+name: "Conftest"
+description: "Open Policy Agent- Docker file check"
+author: "Sunil Jacob"
+branding:
+  icon: "check"
+  color: "green"
+inputs: 
+  file:
+    description: "Files for Conftest to test"
+    required: true
+  output:
+    description: "Output format for results"
+    default: "stdout"
+runs:
+  using: 'composite'
+  steps:
+    # - run: docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy opa-docker-security.rego ${{ inputs.file }}
+    #   shell: bash
+    - run: cat $docker_file > ${{ github.action_path }}/Dockerfile
+      env:
+        docker_file: ${{ inputs.file }}
+      shell: bash
+    - run: docker run --rm -v ${{ github.action_path }}:/project openpolicyagent/conftest test Dockerfile
+      shell: bash
