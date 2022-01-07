@@ -1,8 +1,8 @@
-name: "Conftest"
+name: "OPA Docker Action"
 description: "Open Policy Agent- Docker file check"
 author: "Sunil Jacob"
 branding:
-  icon: "check"
+  icon: "shield"
   color: "green"
 inputs: 
   file:
@@ -14,8 +14,6 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    # - run: docker run --rm -v $(pwd):/project openpolicyagent/conftest test --policy opa-docker-security.rego ${{ inputs.file }}
-    #   shell: bash
     - run: cat $docker_file > ${{ github.action_path }}/Dockerfile
       env:
         docker_file: ${{ inputs.file }}
