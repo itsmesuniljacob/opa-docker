@@ -33,5 +33,17 @@ steps:
         file: Dockerfile
 ```
 
-## Success Scenario
+## Success scenario
 
+```
+Status: Downloaded newer image for openpolicyagent/conftest:latest
+8 tests, 8 passed, 0 warnings, 0 failures, 0 exceptions
+```
+
+## Failure scenario
+```
+Status: Downloaded newer image for openpolicyagent/conftest:latest
+FAIL - Dockerfile - main - Do not run as root, use USER instead
+8 tests, 7 passed, 0 warnings, 1 failure, 0 exceptions
+Error: Process completed with exit code 1.
+```
