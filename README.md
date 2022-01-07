@@ -1,6 +1,6 @@
 # OPA ( Open Policy Agent ) for Docker
 
-This action runs/validate your Dockerfile with a set of policies and used OPA Conftest.
+This action runs/validate your Dockerfile with a set of policies and uses OPA Conftest.
 
 There would be no need to have a policy folder within your repo.
 
